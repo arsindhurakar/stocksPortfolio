@@ -54,6 +54,26 @@
     text-align: end;
   }
 
+  &__maxQuantityDesc {
+    color: $font-primary;
+    & > span {
+      color: $alert-success;
+    }
+  }
+
+  &__modal {
+    & > p {
+      & > span {
+        font-size: 1rem;
+        color: $alert-success;
+      }
+    }
+
+    & > p:not(:last-child) {
+      margin-bottom: 0.4rem;
+    }
+  }
+
   .ant-form-item-label > label {
     width: 100px;
   }

@@ -9,6 +9,12 @@
   align-items: center;
   background-color: $bg-primary;
 
+  @media only screen and (max-width: 470px) {
+    flex-direction: column-reverse;
+    height: 6rem;
+    align-items: flex-start;
+  }
+
   &__navigations {
     display: flex;
     list-style: none;
@@ -32,6 +38,11 @@
 
   &__userInfo {
     display: flex;
+
+    @media only screen and (max-width: 470px) {
+      justify-content: flex-end;
+      width: 100%;
+    }
   }
 
   &__dropdown {

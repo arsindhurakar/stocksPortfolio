@@ -89,6 +89,7 @@ span.ant-radio + * {
 .ant-modal-header {
   background-color: #43454d;
   border-bottom: none;
+  padding: 1rem;
 }
 
 .ant-modal-title {
@@ -98,7 +99,12 @@ span.ant-radio + * {
 .ant-modal-body {
   background-color: #43454d;
   color: #ffffff;
-  padding: 0 1rem;
+  padding: 1rem;
+}
+
+.ant-modal-footer {
+  background-color: #43454d;
+  border-top: none;
 }
 //modal
 
