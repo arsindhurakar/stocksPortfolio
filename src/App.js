@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import "antd/dist/antd.css";
+import Router from "./router/Router";
+import ProtectedRoute from "./router/ProtectedRoute";
+import { BrowserRouter, Switch, Route, withRouter } from "react-router-dom";
+import { Dashboard, PortfolioMain } from "./pages";
 
 function App() {
+  const pageRoutes = () => {
+    return (
+      <div className="app">
+        <Router />
+      </div>
+    );
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <ProtectedRoute path="/dashboard" component={withRouter(Dashboard)} />
+        <ProtectedRoute
+          path="/portfolio"
+          component={withRouter(PortfolioMain)}
+        />
+        <Route component={withRouter(pageRoutes)} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 

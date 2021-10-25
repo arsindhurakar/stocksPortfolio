@@ -1,0 +1,20 @@
+@import "../../../constants/main.scss";
+
+.btn {
+  padding: 10px 22px;
+  outline: none;
+  background: none;
+  border: none;
+  text-transform: uppercase;
+
+  color: $font-tertiary;
+
+  &:hover {
+    cursor: pointer;
+    font-weight: 800;
+  }
+}
+
+.btnSecondary {
+  background-color: #ffffff;
+}

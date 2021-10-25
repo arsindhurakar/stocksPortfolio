@@ -1,0 +1,41 @@
+@import "../../../constants/main.scss";
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    & > p:first-child {
+      text-align: center;
+      color: rgb(163, 162, 162);
+    }
+
+    & > p:nth-child(2) {
+      font-size: 2rem;
+      color: $font-tertiary;
+      margin-top: 1rem;
+    }
+  }
+
+  &__body {
+    & > p {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__profit {
+    color: $alert-success;
+  }
+
+  &__loss {
+    color: $alert;
+  }
+}

@@ -1,0 +1,17 @@
+@import "../../../constants/main.scss";
+
+.stocksSold {
+  min-height: 240px;
+
+  &__profit {
+    color: $alert-success;
+  }
+
+  &__loss {
+    color: $alert;
+  }
+
+  .ant-table-tbody > tr > td:nth-child(2) {
+    min-width: 16rem;
+  }
+}

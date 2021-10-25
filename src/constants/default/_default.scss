@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #464b5e;
+  color: #ffffff;
+}
+
+p,
+ul {
+  margin: 0;
+}
+
+a {
+  color: #ffffff;
+}
+
+// .ant-pagination-item-active a {
+//   color: #f46101;
+// }
+
+// .ant-pagination-item-active {
+//   border-color: #f46101;
+// }
+
+// table data
+.ant-table-thead > tr > th {
+  color: #ffffff;
+  background-color: #43454d;
+  padding: 6.4px;
+}
+
+.ant-table-tbody > tr > td {
+  color: #ffffff;
+  background-color: #43454d;
+  border: none;
+}
+
+.ant-table .ant-table-tbody > tr:hover > td {
+  background: #464b5e;
+}
+
+.ant-table-tbody > tr > td {
+  padding: 0.4rem;
+}
+// table data
+
+// table overflow
+.ant-table {
+  overflow-x: auto;
+}
+// table overflow
+
+// radio
+span.ant-radio + * {
+  color: #ffffff;
+}
+// radio
+
+//form label
+.ant-form-item-label > label {
+  color: #ffffff;
+}
+//form label
+
+//empty description
+.ant-empty-normal {
+  color: #ffffff;
+}
+//empty description
+
+//pagination pager
+.ant-pagination-item {
+  display: none;
+}
+//pagination pager
+
+//pagination arrows
+.ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+  background-color: #43454d;
+}
+//pagination arrows
+
+//modal
+.ant-modal-header {
+  background-color: #43454d;
+  border-bottom: none;
+}
+
+.ant-modal-title {
+  color: #ffffff;
+}
+
+.ant-modal-body {
+  background-color: #43454d;
+  color: #ffffff;
+  padding: 0 1rem;
+}
+//modal
+
+//icon
+.anticon svg {
+  color: #ffffff;
+}
+//icon
+
+//tabpane
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #f46101;
+}
+
+.ant-tabs-tab-btn {
+  color: #ffffff;
+}
+
+.ant-tabs-ink-bar {
+  background: #f46101;
+}
+
+.ant-tabs-centered
+  > .ant-tabs-nav
+  .ant-tabs-nav-wrap:not([class*="ant-tabs-nav-wrap-ping"]),
+.ant-tabs-centered
+  > div
+  > .ant-tabs-nav
+  .ant-tabs-nav-wrap:not([class*="ant-tabs-nav-wrap-ping"]) {
+  border-bottom: 2px solid #43454d;
+}
+//tabpane
+
+// input required error
+.ant-form-item-explain.ant-form-item-explain-error {
+  color: #dc2807;
+  font-size: 0.7rem;
+}
+// input required error

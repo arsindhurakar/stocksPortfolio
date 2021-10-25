@@ -1,0 +1,60 @@
+@import "../../../constants/main.scss";
+
+.transaction {
+  &__head {
+    display: flex;
+    justify-content: space-between;
+
+    & > p {
+      color: $alert-success;
+    }
+  }
+
+  &__stock {
+    width: 50%;
+
+    @media only screen and (min-width: 1400px) {
+      width: 35%;
+    }
+
+    @media only screen and (max-width: 980px) {
+      width: 100%;
+    }
+  }
+
+  &__quantityPrice {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+
+    @media only screen and (min-width: 1400px) {
+      width: 35%;
+    }
+
+    @media only screen and (max-width: 980px) {
+      width: 100%;
+    }
+
+    & > div:last-child {
+      a,
+      area,
+      button,
+      [role="button"],
+      input:not([type="range"]),
+      label,
+      select,
+      summary,
+      textarea {
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__proceedBtn {
+    text-align: end;
+  }
+
+  .ant-form-item-label > label {
+    width: 100px;
+  }
+}

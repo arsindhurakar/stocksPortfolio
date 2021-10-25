@@ -1,0 +1,19 @@
+@mixin pageLayout {
+  width: 80%;
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media only screen and (max-width: 980px) {
+    width: 90%;
+  }
+}
+
+@mixin componentLayout {
+  margin-top: 1.4rem;
+  box-shadow: $box-shadow;
+  padding: 1rem;
+  border-radius: 4px;
+  background-color: $bg-primary;
+}

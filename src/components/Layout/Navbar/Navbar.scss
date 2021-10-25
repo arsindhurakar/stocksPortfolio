@@ -1,0 +1,56 @@
+@import "../../../constants/main.scss";
+
+.navbar {
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: $box-shadow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $bg-primary;
+
+  &__navigations {
+    display: flex;
+    list-style: none;
+
+    & > li {
+      & > a {
+        &:hover {
+          color: $font-tertiary;
+        }
+      }
+    }
+
+    & > li:first-child {
+      margin-right: 1.2rem;
+    }
+  }
+
+  &__activeNavLink {
+    color: $font-tertiary;
+  }
+
+  &__userInfo {
+    display: flex;
+  }
+
+  &__dropdown {
+    display: flex;
+    align-items: center;
+
+    & > p {
+      margin-right: 0.4rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: $font-tertiary;
+    }
+  }
+
+  &__dropdownOption {
+    .anticon svg {
+      color: #000000;
+    }
+  }
+}

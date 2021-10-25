@@ -1,0 +1,34 @@
+@import "../../constants/main.scss";
+
+.dashboard {
+  @include pageLayout;
+
+  &__element {
+    @include componentLayout;
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 980px) {
+      flex-direction: column-reverse;
+    }
+
+    & > div:first-child {
+      width: 68%;
+
+      @media only screen and (max-width: 980px) {
+        width: 100%;
+      }
+    }
+
+    & > div:last-child {
+      width: 30%;
+
+      @media only screen and (max-width: 980px) {
+        width: 100%;
+      }
+    }
+  }
+}
