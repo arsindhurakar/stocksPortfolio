@@ -1,25 +1,41 @@
 @import "../../constants/main.scss";
 
 .login {
-  width: 30%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 2rem 1.4rem;
-  border-radius: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
-    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-  // box-shadow: $box-shadow;
-  background-color: $bg-primary;
+  width: 30%;
 
   @media only screen and (max-width: 1100px) {
-    width: 70%;
+    width: 50%;
   }
 
-  @media only screen and (max-width: 780px) {
+  @media only screen and (max-width: 640px) {
     width: 90%;
-    // height: 90%;
+  }
+
+  &__msg {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto 1rem;
+  }
+
+  &__errorMsg {
+    color: $alert;
+  }
+
+  &__successMsg {
+    color: $alert-success;
+  }
+
+  &__container {
+    padding: 2rem 1.4rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+      rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    // box-shadow: $box-shadow;
+    background-color: $bg-primary;
   }
 
   &__nameContainer {

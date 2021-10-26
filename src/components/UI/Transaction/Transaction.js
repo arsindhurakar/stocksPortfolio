@@ -16,6 +16,7 @@ const Transaction = ({ getStocksInHand, stocksInHand, stocksData }) => {
   const [step, setStep] = useState(1);
   const [maxQuantity, setMaxQuanity] = useState(0);
   const [isQuantityVisible, setIsQuantityVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { Option } = Select;
   const [form] = Form.useForm();
@@ -103,6 +104,8 @@ const Transaction = ({ getStocksInHand, stocksInHand, stocksData }) => {
   const handleProcessing = async () => {
     const { stock, quantity, pricePerUnit } = formValues;
 
+    setIsLoading(true);
+
     db.collection("transactions")
       .doc()
       .set({
@@ -165,8 +168,8 @@ const Transaction = ({ getStocksInHand, stocksInHand, stocksData }) => {
     }
     form.resetFields();
     setStep(step + 1);
-
     isQuantityVisible && setIsQuantityVisible(false);
+    setIsLoading(false);
   };
 
   const getAvailableStocks = () => {
@@ -193,7 +196,14 @@ const Transaction = ({ getStocksInHand, stocksInHand, stocksData }) => {
             name="stock"
             rules={[{ required: true, message: "Input Required" }]}
           >
-            <Select onChange={handleStock}>
+            <Select
+              onChange={handleStock}
+              disabled={
+                action === "buy"
+                  ? getAvailableStocks().length < 1
+                  : stocksInHand.length < 1
+              }
+            >
               {action === "buy"
                 ? getAvailableStocks().map(({ id, name }) => (
                     <Option key={id} value={name}>
@@ -216,8 +226,12 @@ const Transaction = ({ getStocksInHand, stocksInHand, stocksData }) => {
           >
             <InputNumber
               min={10}
-              max={action === "sell" && maxQuantity}
-              // defaultValue={10}
+              max={action === "sell" ? maxQuantity : 100}
+              disabled={
+                action === "buy"
+                  ? getAvailableStocks().length < 1
+                  : stocksInHand.length < 1
+              }
             />
           </Form.Item>
           <Form.Item
@@ -233,6 +247,13 @@ const Transaction = ({ getStocksInHand, stocksInHand, stocksData }) => {
             Quantity Available: <span>{maxQuantity} units </span>
           </p>
         )}
+        {action === "buy"
+          ? getAvailableStocks().length < 1 && (
+              <p className="transaction__noStocks">No Stocks Available..</p>
+            )
+          : stocksInHand.length < 1 && (
+              <p className="transaction__noStocks">No Stocks Available..</p>
+            )}
         <div className="transaction__proceedBtn">
           <Form.Item>
             <Button>Proceed</Button>
@@ -249,8 +270,13 @@ const Transaction = ({ getStocksInHand, stocksInHand, stocksData }) => {
             <Button
               key={action === "buy" ? "buy" : "sell"}
               onClick={handleProcessing}
+              disabled={isLoading}
             >
-              {action === "buy" ? "Purchase" : "Sell"}
+              {isLoading
+                ? "Processing.."
+                : action === "buy"
+                ? "Purchase"
+                : "Sell"}
             </Button>,
           ]
         }

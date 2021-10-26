@@ -18,7 +18,11 @@ const Navbar = () => {
 
   const menu = (
     <Menu key="1">
-      <Menu.Item className="navbar__dropdownOption" onClick={handleLogout}>
+      <Menu.Item
+        className="navbar__dropdownOption"
+        onClick={handleLogout}
+        key="logout"
+      >
         <LogoutOutlined />
         <span style={{ marginLeft: "0.4rem" }}>Logout</span>
       </Menu.Item>

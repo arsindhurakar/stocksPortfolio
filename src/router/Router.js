@@ -1,22 +1,38 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { Login, Dashboard, PortfolioMain } from "../pages";
+import { Switch, Route } from "react-router-dom";
+import { Login, Dashboard, PortfolioMain, NotFound } from "../pages";
 
 const Router = () => {
+  const ROUTES = [
+    {
+      path: "/",
+      component: Login,
+    },
+    {
+      path: "/dashboard",
+      component: Dashboard,
+    },
+    {
+      path: "/portfolio",
+      component: PortfolioMain,
+    },
+    {
+      path: "*",
+      component: NotFound,
+    },
+  ];
+
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/">
-          <Login />
-        </Route>
-        <Route exact path="/dashboard">
-          <Dashboard />
-        </Route>
-        <Route exact path="/portfolio">
-          <PortfolioMain />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      {ROUTES.map((route, index) => (
+        <Route
+          key={index}
+          exact
+          path={route.path}
+          component={route.component}
+        />
+      ))}
+    </Switch>
   );
 };
 

@@ -10,6 +10,8 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const { login, register } = useAuth();
   const history = useHistory();
@@ -58,15 +60,21 @@ const Login = () => {
     setIsLoading(false);
   };
 
-  const handleRegister = () => {
+  const handleFormToggle = () => {
     setIsRegister(!isRegister);
+    setErrorMsg("");
+    setSuccessMsg("");
+    setEmail("");
+    setPassword("");
   };
 
   return (
-    <>
-      {errorMsg && <p>{errorMsg}</p>}
-      {successMsg && <p>{successMsg}</p>}
-      <div className="login">
+    <div className="login">
+      {errorMsg && <p className="login__msg login__errorMsg">{errorMsg}</p>}
+      {successMsg && (
+        <p className="login__msg login__successMsg">{successMsg}</p>
+      )}
+      <div className="login__container">
         <form onSubmit={!isRegister ? handleLogin : handleRegistration}>
           {isRegister && (
             <div className="login__nameContainer">
@@ -84,8 +92,22 @@ const Login = () => {
               </div>
             </div>
           )}
-          <Input label="Email" type="email" name="email" required />
-          <Input label="Password" type="password" name="password" required />
+          <Input
+            label="Email"
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <Input
+            label="Password"
+            type="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
           {isRegister && (
             <Input
               label="Confirm Password"
@@ -95,19 +117,21 @@ const Login = () => {
             />
           )}
           <div className="login__submitBtn">
-            <Button>{!isRegister ? "Login" : "Register"}</Button>
+            <Button disabled={isLoading}>
+              {isLoading ? "Processing.." : !isRegister ? "Login" : "Register"}
+            </Button>
           </div>
         </form>
         <div className="login__newAccount">
           <p>
             {!isRegister ? "Not Registered?" : "Already Registered?"}{" "}
-            <span onClick={handleRegister}>
+            <span onClick={handleFormToggle}>
               {!isRegister ? "Register" : "Login"}
             </span>
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
