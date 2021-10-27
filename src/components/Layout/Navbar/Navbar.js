@@ -52,7 +52,7 @@ const Navbar = () => {
         </li>
       </ul>
       <div className="navbar__userInfo">
-        <Dropdown overlay={menu}>
+        <Dropdown overlay={menu} trigger={["click"]}>
           <div className="navbar__dropdown">
             <p>Hi, {currentUser?.displayName}</p>
             <Avatar>

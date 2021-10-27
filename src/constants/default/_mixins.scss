@@ -1,9 +1,9 @@
 @mixin pageLayout {
   width: 80%;
   position: absolute;
-  top: 2%;
   left: 50%;
   transform: translateX(-50%);
+  padding: 1.5rem 0;
 
   @media only screen and (max-width: 980px) {
     width: 90%;
